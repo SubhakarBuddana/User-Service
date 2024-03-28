@@ -1,0 +1,41 @@
+service: userservice
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: provided.al2023
+  region: us-east-2
+  environment:
+    DATABASE_URL: "user-service-dev-auroraserverlesscluster-lvuwkljfv1eb.cluster-cnguo6eaojjj.us-east-2.rds.amazonaws.com"
+
+
+package:
+  patterns:
+    # - '!./**'
+    - ./bin/**
+
+functions:
+  UserApi:
+    handler: bin/main
+    events:
+      - httpApi:
+          path: /{proxy+}
+          method: ANY
+
+
+resources:
+  Resources:
+    MyApi:
+      Type: AWS::ApiGatewayV2::Api
+      Properties:
+        Name: MyAPI
+        ProtocolType: HTTP
+    AuroraServerlessCluster: 
+      Type: AWS::RDS::DBCluster
+      Properties:
+        Engine: aurora-mysql
+        EngineMode: serverless
+        DatabaseName: UserSerive
+        MasterUsername: subhakar
+        MasterUserPassword: subhakar
+
