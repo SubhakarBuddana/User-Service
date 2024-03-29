@@ -5,12 +5,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+
+	Models "github.com/SubhakarBuddana/User-Service/hello/Models"
 	"github.com/aws/aws-lambda-go/events"
 )
 
 func ForgotPassword(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	// Parse request body
-	var user User
+	var user Models.User
 	if err := json.Unmarshal([]byte(request.Body), &user); err != nil {
 		log.Printf("Failed to unmarshal request body: %v", err)
 		return events.APIGatewayProxyResponse{StatusCode: 400}, nil

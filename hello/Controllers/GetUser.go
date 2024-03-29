@@ -6,6 +6,8 @@ import (
 	"encoding/json"
 	"log"
 	"os"
+
+	Models "github.com/SubhakarBuddana/User-Service/hello/Models"
 	"github.com/aws/aws-lambda-go/events"
 )
 

@@ -5,8 +5,7 @@ provider:
   name: aws
   runtime: provided.al2023
   region: us-east-2
-  environment:
-    DATABASE_URL: "user-service-dev-auroraserverlesscluster-lvuwkljfv1eb.cluster-cnguo6eaojjj.us-east-2.rds.amazonaws.com"
+  
 
 
 package:

@@ -6,9 +6,11 @@ import (
 	"encoding/json"
 	"log"
 	"os"
+
+	Models "github.com/SubhakarBuddana/User-Service/hello/Models"
 	"github.com/aws/aws-lambda-go/events"
 )
- 
+
 func LoginUser(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	// Parse request body
 	var user Models.User

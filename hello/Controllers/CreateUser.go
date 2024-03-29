@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"github.com/aws/aws-lambda-go/events"
+	Models "github.com/SubhakarBuddana/User-Service/hello/Models"
 	_ "github.com/lib/pq"
 )
 
